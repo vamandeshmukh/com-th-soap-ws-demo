@@ -9,6 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import https.www_torryharris_com.soap_ws_demo.EmployeeType;
 import https.www_torryharris_com.soap_ws_demo.GetEmployeeRequest;
 import https.www_torryharris_com.soap_ws_demo.GetEmployeeResponse;
 
@@ -32,6 +33,11 @@ public class EmployeeEndpoint {
 	public GetEmployeeResponse getEmployee(@RequestPayload GetEmployeeRequest request) {
 		LOG.info("...5 getEmployee " + request.getEmployeeId());
 		GetEmployeeResponse response = new GetEmployeeResponse();
+		EmployeeType empt = new EmployeeType();
+		empt.setEmployeeId(101);
+		empt.setFirstName("Sonu");
+		empt.setSalary(50000);
+		response.setEmployeeType(empt);
 //		response.setEmployeeType(employeeRepository.findById(request.getEmployeeId()).get());
 		return response;
 	}
