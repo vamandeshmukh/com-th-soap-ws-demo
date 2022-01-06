@@ -1,6 +1,7 @@
 package com.th.ws.demo;
 
 import org.slf4j.Logger;
+
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -29,9 +30,9 @@ public class EmployeeEndpoint {
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getEmployeeRequest")
 	@ResponsePayload
 	public GetEmployeeResponse getEmployee(@RequestPayload GetEmployeeRequest request) {
-		LOG.info("...5 getEmployee " + request.getId());
+		LOG.info("...5 getEmployee " + request.getEmployeeId());
 		GetEmployeeResponse response = new GetEmployeeResponse();
-		response.setEmployee(employeeRepository.findById(request.getId()).get());
+//		response.setEmployeeType(employeeRepository.findById(request.getEmployeeId()).get());
 		return response;
 	}
 }

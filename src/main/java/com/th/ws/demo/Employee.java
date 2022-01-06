@@ -1,7 +1,14 @@
 package com.th.ws.demo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "emptbl")
 public class Employee {
 
+	@Id
 	private int employeeId;
 	private String firstName;
 	private double salary;
