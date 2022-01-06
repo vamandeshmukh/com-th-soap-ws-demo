@@ -1,4 +1,4 @@
-package com.th.ws.demo;
+package com.th.ws.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

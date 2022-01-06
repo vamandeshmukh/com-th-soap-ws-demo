@@ -1,4 +1,4 @@
-package com.th.ws.demo;
+package com.th.ws.demo.endpoint;
 
 import org.slf4j.Logger;
 
@@ -8,6 +8,9 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import com.th.ws.demo.model.Employee;
+import com.th.ws.demo.repository.EmployeeRepository;
 
 import https.www_torryharris_com.soap_ws_demo.EmployeeType;
 import https.www_torryharris_com.soap_ws_demo.GetEmployeeRequest;
@@ -33,12 +36,13 @@ public class EmployeeEndpoint {
 	public GetEmployeeResponse getEmployee(@RequestPayload GetEmployeeRequest request) {
 		LOG.info("...5 getEmployee " + request.getEmployeeId());
 		GetEmployeeResponse response = new GetEmployeeResponse();
+		Employee emp = employeeRepository.findById(request.getEmployeeId()).get();
+//		EmployeeType empt = (EmployeeType) employeeRepository.findById(request.getEmployeeId()).get();
 		EmployeeType empt = new EmployeeType();
 		empt.setEmployeeId(101);
 		empt.setFirstName("Sonu");
 		empt.setSalary(50000);
 		response.setEmployeeType(empt);
-//		response.setEmployeeType(employeeRepository.findById(request.getEmployeeId()).get());
 		return response;
 	}
 }
