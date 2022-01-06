@@ -4,7 +4,7 @@
 
    <soapenv:Body>
          <gs:getEmployeeRequest>
-         <gs:employeeId>Sonu</gs:employeeId>
+         <gs:employeeId>11</gs:employeeId>
       </gs:getEmployeeRequest>
    </soapenv:Body>
    
